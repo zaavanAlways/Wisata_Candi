@@ -118,23 +118,28 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {
-                          _toggleFavorite();
-                        }, 
-                        icon: Icon(isSignedIn && isFavorite
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                        color: isSignedIn && isFavorite ? Colors.red : null,)
-                      ),
+                          onPressed: () {
+                            _toggleFavorite();
+                          },
+                          icon: Icon(
+                            isSignedIn && isFavorite
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: isSignedIn && isFavorite ? Colors.red : null,
+                          )),
                     ],
                   ),
                   // info tengah (lokasi, dibangun, tipe)
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      const Icon(Icons.place, color: Colors.red,),
+                      const Icon(
+                        Icons.place,
+                        color: Colors.red,
+                      ),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 70,
+                      const SizedBox(
+                        width: 70,
                         child: Text(
                           'Lokasi',
                           style: TextStyle(
@@ -142,14 +147,20 @@ class _DetailScreenState extends State<DetailScreen> {
                           ),
                         ),
                       ),
-                      Text(': ${widget.candi.location}',),
+                      Text(
+                        ': ${widget.candi.location}',
+                      ),
                     ],
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.calendar_month, color: Colors.blue,),
+                      const Icon(
+                        Icons.calendar_month,
+                        color: Colors.blue,
+                      ),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 70,
+                      const SizedBox(
+                        width: 70,
                         child: Text(
                           'Dibangun',
                           style: TextStyle(
@@ -157,14 +168,20 @@ class _DetailScreenState extends State<DetailScreen> {
                           ),
                         ),
                       ),
-                      Text(': ${widget.candi.built}',),
+                      Text(
+                        ': ${widget.candi.built}',
+                      ),
                     ],
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.house, color: Colors.green,),
+                      const Icon(
+                        Icons.house,
+                        color: Colors.green,
+                      ),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 70,
+                      const SizedBox(
+                        width: 70,
                         child: Text(
                           'Tipe',
                           style: TextStyle(
@@ -172,11 +189,15 @@ class _DetailScreenState extends State<DetailScreen> {
                           ),
                         ),
                       ),
-                      Text(': ${widget.candi.type}',),
+                      Text(
+                        ': ${widget.candi.type}',
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Divider(color: Colors.deepPurple.shade100,),
+                  Divider(
+                    color: Colors.deepPurple.shade100,
+                  ),
                   const SizedBox(height: 16),
                   // info bawah (deskripsi)
                   Padding(
@@ -184,12 +205,20 @@ class _DetailScreenState extends State<DetailScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Deskripsi', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                        const SizedBox(height: 10,),
+                        const Text(
+                          'Deskripsi',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Text(
                           widget.candi.description,
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                       ],
                     ),
                   ),
@@ -199,50 +228,65 @@ class _DetailScreenState extends State<DetailScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Divider(color: Colors.deepPurple.shade100,),
-                        const Text('Galeri', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                        const SizedBox(height: 10,),
+                        Divider(
+                          color: Colors.deepPurple.shade100,
+                        ),
+                        const Text(
+                          'Galeri',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         SizedBox(
                           height: 100,
                           child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: widget.candi.imageUrls.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: GestureDetector(
-                                  onTap: (){},
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12),
-                                      border: Border.all(
-                                        color: Colors.deepPurple.shade100,
-                                        width: 2,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: widget.candi.imageUrls.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                        border: Border.all(
+                                          color: Colors.deepPurple.shade100,
+                                          width: 2,
+                                        ),
                                       ),
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: CachedNetworkImage(
-                                        imageUrl: widget.candi.imageUrls[index],
-                                        width: 120,
-                                        height: 120,
-                                        fit: BoxFit.cover,
-                                        placeholder: (context, url) => Container(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: CachedNetworkImage(
+                                          imageUrl:
+                                              widget.candi.imageUrls[index],
                                           width: 120,
                                           height: 120,
-                                          color: Colors.deepPurple[50],
+                                          fit: BoxFit.cover,
+                                          placeholder: (context, url) =>
+                                              Container(
+                                            width: 120,
+                                            height: 120,
+                                            color: Colors.deepPurple[50],
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
-                                        errorWidget: (context, url, error) => const Icon(Icons.error),
                                       ),
                                     ),
                                   ),
-                                ),
-                              );
-                            }
-                          ),
+                                );
+                              }),
                         ),
-                        const SizedBox(height: 4,),
-                        const Text('Tap untuk memperbesar', style: TextStyle(fontSize: 12, color: Colors.black54),),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        const Text(
+                          'Tap untuk memperbesar',
+                          style: TextStyle(fontSize: 12, color: Colors.black54),
+                        ),
                       ],
                     ),
                   ),

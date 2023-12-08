@@ -43,7 +43,8 @@ class ProfileInfoItem extends StatelessWidget {
             style: const TextStyle(fontSize: 18),
           ),
         ),
-        if (showEditIcon) InkWell(onTap: onEditPressed, child: const Icon(Icons.edit)),
+        if (showEditIcon)
+          InkWell(onTap: onEditPressed, child: const Icon(Icons.edit)),
       ],
     );
   }

@@ -13,9 +13,9 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: 6. Implementasi routing ke DetailScreen
     return InkWell(
-      onTap: () { 
+      onTap: () {
         Navigator.push(
-          context, 
+          context,
           MaterialPageRoute(
             builder: (context) => DetailScreen(candi: candi),
           ),
