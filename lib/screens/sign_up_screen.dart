@@ -25,7 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final String name = _nameController.text.trim();
     final String username = _usernameController.text.trim();
     final String password = _passwordController.text.trim();
-    
+
     if (password.length < 8 ||
         !password.contains(RegExp(r'[A-Z]')) ||
         !password.contains(RegExp(r'[a-z]')) ||
@@ -55,7 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       prefs.setString('key', key.base64);
       prefs.setString('iv', iv.base64);
     }
-    
+
     // Buat navigasi ke SignInScreen
     Navigator.pushReplacementNamed(context, '/signin');
   }
@@ -132,7 +132,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(onPressed: _signUp, child: const Text("Sign Up")),
+                ElevatedButton(
+                    onPressed: _signUp, child: const Text("Sign Up")),
                 // TODO: 9. Pasang TextButton Sign In
                 const SizedBox(
                   height: 10,
